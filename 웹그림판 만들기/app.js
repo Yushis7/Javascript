@@ -1,6 +1,9 @@
-const EraserBtn = document.getElementById("eraser-btn")
-const destroybtn = document.getElementById("destroy-btn")
-const modeBtn = document.getElementById("mode-btn")
+const SaveBtn = document.getElementById("Save");
+const textInput = document.getElementById("text");
+const fileinput = document.getElementById("file");
+const EraserBtn = document.getElementById("eraser-btn");
+const destroybtn = document.getElementById("destroy-btn");
+const modeBtn = document.getElementById("mode-btn");
 // const colorOptions = document.getElementsByClassName("color-option")
 const colorOptions = Array.from(document.getElementsByClassName("color-option"));
 const color = document.getElementById("color")
@@ -13,6 +16,7 @@ const CANVAS_HEIGHT = 800;
 canvas.width=CANVAS_WIDTH;
 canvas.height=CANVAS_HEIGHT;
 ctx.lineWidth = lineWidth.value;
+ctx.linecap = "suqare"; // butt,round,square 3가지로 그림선 끝을 다르게 표현가능
 let isPainting = false;
 let isFilling = false;
 
@@ -154,7 +158,42 @@ function onEraserClick(){
     modeBtn.innerText = "Fill";
 
 }
+function onFileChange(event){
+  const file = event.target.files[0];
+  const url = URL.createObjectURL(file);
+  const image = new Image()
+  image.src =url;
+  image.onload = function(){
+    ctx.drawImage(image,0,0,CANVAS_WIDTH,CANVAS_HEIGHT);
+    fileinput.value = null;
+  }
+}
+function onDoubleClick(event){
+    // console.log(event.offsetX,event.offsetY);
+    const text = textInput.value;
+    if(text !=="0"){
+        ctx.save();
+        ctx.lineWidth =1;
+        ctx.font = "48px serif"; //48px 글자크기 다르게 가능 serif 말고 다른 폰트 가능
+        // ctx.strokeText(text,event.offsetX,event.offsetY); //글자 색 비우기
+        ctx.fillText(text,event.offsetX,event.offsetY); // 글자 색 채우기
+        ctx.restore();
+    }
+    
+}
 
+function onSaveClick(){
+    const url = canvas.toDataURL();
+    const a = document.createElement("a");
+    a.href=url;
+    a.download = "myDrawing.png";
+    a.click();
+
+}
+
+
+canvas.addEventListener("dblclick", onDoubleClick);
+canvas.onmousemove = onMove
 canvas.addEventListener("mousemove",onMove);
 // canvas.addEventListener("mousedown",onMouseDown);
 canvas.addEventListener("mousedown",startPainting);
@@ -169,6 +208,8 @@ colorOptions.forEach(color => color.addEventListener("click",onColorClick));
 modeBtn.addEventListener("click",onModeClick);
 destroybtn.addEventListener("click",onDestroyClick);
 EraserBtn.addEventListener("click",onEraserClick);
+fileinput.addEventListener("change",onFileChange);
+SaveBtn.addEventListener("click",onSaveClick);
 // ctx.moveTo(200,200);
 // ctx.lineTo(400,400);
 // ctx.stroke();
