@@ -192,21 +192,30 @@
 
 
 //if문 여러개 쓰기
-const age = parseInt(prompt("How old are you?"));
+// const age = parseInt(prompt("How old are you?"));
 
-if (isNaN(age) || age<0 ){
-    console.log("please write a number"); // 숫자 안쓰면 숫자쓰라고 알림뜸
-} else if (age <18 ) {
-    console.log("You are so Young.");
-} else if(age>=18 && age<=50){    //&&=and || =or
-    console.log("You can drink");
-}  else if(age>50 && age <=80){
-    console.log("You should excercise."); //숫자 쓰면 뜨는 알림
-} else if (age === 100){  // 100세가 age>80아래로 가면 적용 안됨 서순지키기
-    console.log("wow you are so long time live");
-} else if (age>80){
-    console.log("You can whatever you want");
-}
+// if (isNaN(age) || age<0 ){
+//     console.log("please write a number"); // 숫자 안쓰면 숫자쓰라고 알림뜸
+// } else if (age <18 ) {
+//     console.log("You are so Young.");
+// } else if(age>=18 && age<=50){    //&&=and || =or
+//     console.log("You can drink");
+// }  else if(age>50 && age <=80){
+//     console.log("You should excercise."); //숫자 쓰면 뜨는 알림
+// } else if (age === 100){  // 100세가 age>80아래로 가면 적용 안됨 서순지키기
+//     console.log("wow you are so long time live");
+// } else if (age>80){
+//     console.log("You can whatever you want");
+// }
+
+document.title = "Hello.js"
+
+//document는 html을 의미함 
+const title = document.getElementById("title");
+title.innerText = "Got you!"; // title로 지정하면 html의 title이 변경 됨
+
+console.log(title.id);
+console.log(title.className);
 
 
 
