@@ -1,15 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+ <head>
     <meta charset="UTF-8">
-    <!-- <meta http-equiv="X-UA-Compatible" content="Ie=edge" /> -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Momentum</title>
-</head>
-<body>
-    <!-- <h1 id="title">"Grab me!"</h1> -->
-    <h1 class="hello" id="title">Grab me.</h1>
+    <title>Momentum App</title>
+ </head>
+ <body>
+    <form id="'login-form"> <!--class="hidden" 히든쓰면 다사라짐-->
+        <input 
+        required
+        maxlength="15"
+        type="text"
+        placeholder="What is your name?" />
+        <button>Log In</button>
+    </form>
+    <a href="https://www.naver.com">>네이버이동</a>
     <script src="app.js"></script>
-</body>
+ </body>
 </html>
+<!-- 이렇게 해놓으면 굳이 js 안쓰고 15글자 제한 및 이름입력하라고 알려줌!-->
+
