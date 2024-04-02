@@ -8,7 +8,7 @@
     <title>Momentum App</title>
  </head>
  <body>
-    <form id="'login-form"> <!--class="hidden" 히든쓰면 다사라짐-->
+    <form class="hidden" id="login-form"> <!--class="hidden" 히든쓰면 다사라짐-->
         <input 
         required
         maxlength="15"
@@ -16,8 +16,24 @@
         placeholder="What is your name?" />
         <button>Log In</button>
     </form>
-    <a href="https://www.naver.com">>네이버이동</a>
-    <script src="app.js"></script>
+    <h1 class="hidden" id="greeting"></h1>
+    <h2 id="clock">00:00:00</h2>
+    <form id="todo-form">
+      <input type="text" placeholder="Write a To do and Press enter" required />;
+    </form>
+    <ul id="todo-list"></ul>
+    <!-- <a href="https://www.naver.com">>네이버이동</a> -->
+    <div id="quote">
+      <span></span>
+      <span></span>
+    </div>
+    <!-- <img src="img/1.jpg",src="img/2.jpg",src="img/3.jpg",src="img/4.jpg"/>   -->
+    <!-- html도되고 js로도 되고 -->
+    <script src="js/greetings.js"></script>
+    <script src="js/clock.js"></script>
+    <script src="js/quotes.js"></script>
+    <script src="js/background.js"></script>
+    <script src="js/todo.js"></script>
  </body>
 </html>
 <!-- 이렇게 해놓으면 굳이 js 안쓰고 15글자 제한 및 이름입력하라고 알려줌!-->
