@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript HTML Events</h1>
+<h2>The onclick Attribute</h2>
+
+<p>Click the button to display the date.</p>
+<button onclick="displayDate()">The time is?</button>
+
+<button onclick="this.innerHTML=Date()">The time is?</button>
+<!-- 두개 집어넣으면 하나는 버튼으로 시간이 출력 됨 -->
+
+<script>
+function displayDate() {
+  document.getElementById("demo").innerHTML = Date();
+  
+}
+</script>
+
+<p id="demo"></p>
+
+</body>
+</html> 
